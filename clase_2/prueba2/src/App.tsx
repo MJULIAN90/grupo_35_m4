@@ -4,6 +4,27 @@ import viteLogo from "./assets/vite.svg";
 import heroImg from "./assets/hero.png";
 import "./App.css";
 
+function Formulario({ children }) {
+  return (
+    <>
+      <h2> vamos a ver un children aca a dentro</h2>
+      {children}
+    </>
+  );
+}
+
+function Titulo(props) {
+  return (
+    <div
+      style={{
+        backgroundColor: "blueviolet",
+      }}
+    >
+      <h1>{props.mensaje}</h1>
+    </div>
+  );
+}
+
 function App() {
   const [count, setCount] = useState(0);
   // [valor, funcionParaModificarElValor]
@@ -61,7 +82,26 @@ function App() {
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
         <div>
-          <h1>Get started</h1>
+          {/* <h1>Get started</h1> */}
+          <Formulario>
+            {/* <p>
+              Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+            </p> */}
+            <Titulo mensaje="hola" />
+          </Formulario>
+
+          <Formulario>
+            <div
+              style={{
+                backgroundColor: "yellow",
+              }}
+            >
+              soy otro hijo, soy un childre
+            </div>
+          </Formulario>
+
+          {/* <Titulo mensaje="felipe" />
+          <Titulo mensaje="como estas" /> */}
           <p>
             Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
           </p>
