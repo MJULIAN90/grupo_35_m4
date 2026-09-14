@@ -89,6 +89,9 @@ const Form = () => {
             type="email"
             placeholder="Ingrese un email valido"
             required
+
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? "email-error" : undefined}
           />
 
           {errors.email && <>{errors.email}</>}
@@ -104,6 +107,9 @@ const Form = () => {
             type="password"
             placeholder="Ingrese una password segura"
             required
+
+            aria-invalid={Boolean(errors.password)}
+            aria-describedby={errors.password ? "password-error" : undefined}
           />
           {errors.password && <>{errors.password}</>}
         </div>
