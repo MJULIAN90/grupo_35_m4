@@ -4,26 +4,26 @@ import { Link } from "react-router-dom";
 import { getAuthErrorMessage } from "../feactures/auth/authErrors";
 
 const SignUp = () => {
-  const { signInWithGoogle, signUp } = useAuth()
+  const { signInWithGoogle, signUp } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleRegister = async () => {
     try {
-      await signUp(email, password)
+      await signUp(email, password);
     } catch (err) {
       setError(getAuthErrorMessage(err));
     }
-  }
+  };
 
   const handleWithGoogle = async () => {
     try {
-      await signInWithGoogle()
+      await signInWithGoogle();
     } catch (err) {
       setError(getAuthErrorMessage(err));
     }
-  }
+  };
 
   return (
     <>
@@ -31,12 +31,14 @@ const SignUp = () => {
         <input
           type="text"
           placeholder="Email"
-          value={email} onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
-          value={password} onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button onClick={handleRegister}>Register</button>
       </section>
@@ -45,15 +47,13 @@ const SignUp = () => {
         <button onClick={handleWithGoogle}>Register with Google</button>
       </section>
 
-      <section>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-      </section>
+      <section>{error && <p style={{ color: "red" }}>{error}</p>}</section>
 
       <section>
-        <Link to={'/login'}>Login</Link>
+        <Link to={"/login"}>Login</Link>
       </section>
-    </>)
-}
+    </>
+  );
+};
 
-
-export default SignUp
+export default SignUp;

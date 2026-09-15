@@ -27,7 +27,7 @@ export function PruebaContextoNuevo({ children }: { children: ReactNode }) {
 }
 
 export const ConstumirContext = () => {
-  const {myName} = useContext(PruebaContexto);
+  const { myName } = useContext(PruebaContexto);
 
   console.log("vamos a ver el contexto = ", myName);
 

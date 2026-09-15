@@ -4,29 +4,29 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAuthErrorMessage } from "../feactures/auth/authErrors";
 
 const LoginPage = () => {
-  const { signIn, signInWithGoogle } = useAuth()
-  const navigate = useNavigate()
+  const { signIn, signInWithGoogle } = useAuth();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleSignIn = async () => {
     try {
-      await signIn(email, password)
-      navigate('/dashboard')
+      await signIn(email, password);
+      navigate("/dashboard");
     } catch (err) {
       setError(getAuthErrorMessage(err));
     }
-  }
+  };
 
   const handleWithInGoogle = async () => {
     try {
-      await signInWithGoogle()
-      navigate('/dashboard')
+      await signInWithGoogle();
+      navigate("/dashboard");
     } catch (err) {
       setError(getAuthErrorMessage(err));
     }
-  }
+  };
 
   return (
     <>
@@ -34,12 +34,14 @@ const LoginPage = () => {
         <input
           type="text"
           placeholder="Email"
-          value={email} onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
-          value={password} onChange={(e) => setPassword(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button onClick={handleSignIn}>Login</button>
       </section>
@@ -48,14 +50,13 @@ const LoginPage = () => {
         <button onClick={handleWithInGoogle}>login with Google</button>
       </section>
 
-      <section>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-      </section>
+      <section>{error && <p style={{ color: "red" }}>{error}</p>}</section>
 
       <section>
-        <Link to={'/'}>Register</Link>
+        <Link to={"/"}>Register</Link>
       </section>
-    </>)
-}
+    </>
+  );
+};
 
-export default LoginPage
+export default LoginPage;
