@@ -6,6 +6,8 @@ type Props = {
   uid: string | null; // viene de tu Auth layer
 };
 
+console.log("hola");
+
 export function TasksPage({ uid }: Props) {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [title, setTitle] = useState("");
