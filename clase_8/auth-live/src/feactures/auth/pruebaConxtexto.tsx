@@ -21,7 +21,6 @@ export function PruebaContextoNuevo({ children }: { children: ReactNode }) {
   return (
     <PruebaContexto.Provider value={value}>
       {children}
-      {/* <App /> */}
     </PruebaContexto.Provider>
   );
 }
